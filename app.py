@@ -15,12 +15,69 @@ st.set_page_config(page_icon= "notes", page_title= "AudioCraft")
 @st.cache_data
 def generate_music_prompt(user_input):
     prompt = f"""There is a new AI called MusicGen which can generate a song given a prompt. 
-Generate a text to music prompt as per user chat [OR the choice of user as per chat], include several relevant parameters such as tempo, scale, pitch, rhythm, dynamics, texture, timbre, etc. for an optimized romantic mood. 
-Specify suitable alues for each of these features from your knowledge and include in the prompt generated. 
-Make it in 50-100 words. 
-This prompt is given as a prompt to ai music generator musicgen. Choose mood as per user input.
+
+I have created an app to convert user input into musical prompts.
+
+Here are some examples of how an image description can be turned into a prompt:
+
+Guide to Generating Musical Prompts Based on Ragas and Moods
+
+1. Carnatic Ragas and Moods
+
+For an AI tool like MusicGen which generates songs based on textual prompts, understanding the emotional essence of each raga in the Carnatic tradition is crucial. Each raga carries with it a unique mood and evocation.
+
+Sample Prompts:
+
+Raga: Abhogi
+Mood/Evocation: Devotion, Peace
+Prompt: "Compose a serene piece with gentle dynamics, a calm rhythm, and a devoted undertone capturing the essence of the Abhogi raga, reminiscent of devotion and peace."
+Raga: Amritavarshini
+Mood/Evocation: Rainy, Pleasant
+Prompt: "Craft a track with fluid rhythms like raindrops, a mid-tempo pace, and delicate timbre, echoing the pleasant feeling of the Amritavarshini raga."
+
+Prompt Generator Guide:
+
+For a Carnatic raga, focus on the mood it evokes. Adjust tempo, rhythm, and dynamics to fit the mood description. For instance, a raga that evokes joy might have a faster tempo and lively dynamics.
+
+ 
+
+2. Hindustani Ragas and Moods
+
+Hindustani ragas, deeply rooted in the musical traditions of Northern India, provide a wide range of moods and feelings.
+
+Sample Prompts:
+
+Raga: Bhairav
+Mood/Evocation: Morning, Serious, Devotion
+Prompt: "Design a morning-inspired composition, grounded in seriousness and devotion. Incorporate slow to medium tempo, a deep pitch, and steady rhythm to evoke the Bhairav raga's mood."
+Raga: Des
+Mood/Evocation: Rain, Romance
+Prompt: "Produce a romantic piece characterized by gentle rain-like rhythms, warm timbre, and mid-scale pitches, capturing the essence of the Des raga."
+
+Prompt Generator Guide:
+
+For Hindustani ragas, prioritize the time of day the raga is associated with (if provided). Adjust other musical features like timbre, texture, and dynamics to resonate with the raga's mood.
+
+ 
+
+3. Ragas and Therapy
+
+Using ragas for therapeutic purposes is an ancient practice. The specific tones, rhythms, and progressions of ragas can be healing and transformative.
+
+Sample Therapy-based Prompts:
+
+Raga for Stress Relief:
+Prompt: "Craft a composition using gentle, flowing rhythms, soft dynamics, and a soothing timbre to provide relaxation and stress relief."
+Raga for Energizing and Rejuvenation:
+Prompt: "Design a track with a brisk tempo, lively rhythms, and bright timbre to invigorate and rejuvenate the listener."
+
+Prompt Generator Guide:
+
+For therapy-based prompts, understand the therapeutic need (e.g., relaxation, invigoration). Craft prompts that adjust musical attributes to evoke the desired therapeutic effect. 
+
 The following is a description of the user's image: {user_input}
-Create a prompt for MusicGen that represents the suer input."""
+
+Create a prompt for MusicGen that represents the user input. For all cases, you must specify each raga, mood, and characteristic as in [tempo, scale, pitch, rhythm, dynamics, texture, timbre, temperature, etc.] in numbers appropriately chosen for the context, the instruments used, in the prompt you generate and include them as part of the prompt. Temperature - means Temperature in music terms. Describe in 50-100 words with [tempo, scale, pitch, rhythm, dynamics, texture, timbre, temperature, etc] in numbers like [tempo = 80, scale, pitch = C4, rhythm/tala = 4/4 temperature = 0.8, etc] - this is only an example/"""
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
