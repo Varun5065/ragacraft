@@ -16,7 +16,7 @@ st.set_page_config(page_icon= "notes", page_title= "AudioCraft")
 def generate_music_prompt(user_input):
     prompt = f"""There is a new AI called MusicGen which can generate a song given a prompt. 
 
-I have created an app to convert user input into musical prompts.
+I have created an app to convert user input into musical prompt.
 
 Here are some examples of how an image description can be turned into a prompt:
 
@@ -77,7 +77,7 @@ For therapy-based prompts, understand the therapeutic need (e.g., relaxation, in
 
 The following is a description of the user's image: {user_input}
 
-Create a prompt for MusicGen that represents the user input. For all cases, you must specify each raga, mood, and characteristic as in [tempo, scale, pitch, rhythm, dynamics, texture, timbre, temperature, etc.] in numbers appropriately chosen for the context, the instruments used, in the prompt you generate and include them as part of the prompt. Temperature - means Temperature in music terms. Describe in 50-100 words with [tempo, scale, pitch, rhythm, dynamics, texture, timbre, temperature, etc] in numbers like [tempo = 80, scale, pitch = C4, rhythm/tala = 4/4 temperature = 0.8, etc] - this is only an example/"""
+Create a prompt for MusicGen that represents the suer input. For all cases, you must specify each raga, mood, and each characteristic as in [tempo, scale, pitch, rhythm, dynamics, texture, timbre, temperature etc] in numbers appropriately chosen for the context, the instruments used, in the prompt you generate and include them as part of the prompt. Temperature - means Temperature in music terms. Describe in 50-100 words with [tempo, scale, pitch, rhythm, dynamics, texture, timbre, temperature etc] in numbers like [tempo = 80, scale, pitch = C4, rhythm/tala = 4/4 temperature = 0.8 etc] - this is only an example and dont use these values; update values as per user mood analysed by you as above./"""
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
